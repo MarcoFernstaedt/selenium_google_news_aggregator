@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 class GoogleScraper:
-    def __init__(self, url, max_articles=5):
+    def __init__(self, url, max_articles=6):
         """
         Initialize the scraper with a URL and a maximum number of articles to scrape.
         :param url: URL of the news site.
@@ -23,9 +23,15 @@ class GoogleScraper:
 
         for article in article_data:
             if len(self.news_articles) < self.max_articles:
+                article_text = article.text
+                try:
+                    article_link = article.find_element(by=By.TAG_NAME, value='a').get_attribute('href')
+                except:
+                    article_link = None  # In case no anchor tag or href found
+                    
                 newArticle = {
-                    'article_text': article.text,
-                    'article_links': article.get_attribute('href')
+                    'article': article_text,
+                    'article_links': article_link,
                 }
                 self.news_articles.append(newArticle)
             else:
@@ -38,7 +44,8 @@ class GoogleScraper:
         Display the scraped articles.
         """
         for count, article in enumerate(self.news_articles, 1):
-            print(f'{count}. {article}')
+            print(count)
+            print(article)
 
 # Usage
 scraper = GoogleScraper('https://google.com/news')
