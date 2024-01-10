@@ -33,11 +33,6 @@ This project is a web scraper developed in Python using Selenium. It's designed 
     pip install selenium
    '''
 
-
-### WebDriver Setup
-- **Download WebDriver**: Download the WebDriver for your browser. For Chrome, you can download ChromeDriver from [here](https://sites.google.com/a/chromium.org/chromedriver/).
-- **Setting Path**: Ensure that the WebDriver is in your PATH. Alternatively, you can specify the path to the WebDriver in your code.
-
 ## Usage
 1. Import the `GoogleScraper` class from the script.
 2. Initialize the class with the URL of the news site (e.g., Google News) and the maximum number of articles to scrape.
