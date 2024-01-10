@@ -32,14 +32,17 @@ This project is a web scraper developed in Python using Selenium. It's designed 
    ```bash
     pip install selenium
    '''
+   ```
 
 ## Usage
+
 1. Import the `GoogleScraper` class from the script.
 2. Initialize the class with the URL of the news site (e.g., Google News) and the maximum number of articles to scrape.
 3. Call the `scrape` method to start scraping the news articles.
 4. Use the `display_articles` method to output the results.
 
 Example:
+
 ```python
 from google_scraper import GoogleScraper
 
@@ -47,3 +50,4 @@ scraper = GoogleScraper('https://google.com/news', max_articles=5)
 scraper.scrape()
 scraper.display_articles()
 
+```
